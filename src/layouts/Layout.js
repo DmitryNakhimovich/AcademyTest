@@ -4,26 +4,25 @@ import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import withRoot from '../withRoot';
 // core components
+import withRoot from "../components/utils/withRoot.js";
 import Header from "../components/common/Header.js";
 import Footer from "../components/common/Footer.js";
 // routing
 import pagesRoutes from "../routes/pages.js";
 
 const layoutStyle = theme => ({
-  pageWrapper: {
-
-  },
+  pageWrapper: {},
   pageScroller: {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'relative',
-    minHeight: '100vh',
-    top: 0,
+    display: "flex",
+    flexDirection: "column",
+    position: "relative",
+    minHeight: "100vh",
+    top: 0
   },
   pageMain: {
-    flex: '1 0 auto',
+    flex: "1 0 auto",
+    paddingTop: "56px"
   }
 });
 
@@ -31,8 +30,8 @@ const switchRoutes = (
   <Switch>
     {pagesRoutes.map((prop, key) => {
       if (prop.redirect)
-        return <Redirect from={prop.path} to={prop.to} key={key} />;
-      return <Route exact={prop.exact} path={prop.path} component={prop.component} key={key} />;
+        return <Redirect from={prop.path} to={prop.to} key={key}/>;
+      return <Route exact={prop.exact} path={prop.path} component={prop.component} key={key}/>;
     })}
   </Switch>
 );
@@ -51,6 +50,7 @@ class App extends React.Component {
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
+
   resizeFunction() {
     if (window.innerWidth >= 960) {
       this.setState({ mobileOpen: false });
@@ -60,6 +60,7 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener("resize", this.resizeFunction);
   }
+
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
       this.refs.pageScroller.scrollTop = 0;
@@ -68,6 +69,7 @@ class App extends React.Component {
       }
     }
   }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.resizeFunction);
   }
@@ -86,9 +88,7 @@ class App extends React.Component {
           />
 
           <main className={classes.pageMain}>
-            <div className={classes.container}>
-              {switchRoutes}
-            </div>
+            {switchRoutes}
           </main>
 
           <Footer {...rest} />

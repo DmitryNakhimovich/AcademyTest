@@ -21,7 +21,7 @@ const pagesRoutes = [
     path: "/about",
     component: About,
     exact: false
-  },  
+  }
 ];
 
 export default pagesRoutes;

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
@@ -9,11 +9,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // page routes
@@ -23,47 +23,47 @@ import logoImg from "../../assets/img/artezio.logo";
 
 const headerStyle = theme => ({
   headerToolbar: {
-    alignItems: 'inherit',
-    minHeight: '50px',
+    alignItems: "inherit",
+    minHeight: "50px"
   },
   headerLogo: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center"
   },
   logoImg: {
-    height: '40px',
-    width: 'auto',
+    height: "40px",
+    width: "auto"
   },
   headerNavWrap: {
-    position: 'relative',
-    width: '100%',
+    position: "relative",
+    width: "100%"
   },
   headerMobileNavWrap: {
-    marginLeft: 'auto',
+    marginLeft: "auto"
   },
   headerLinks: {
-    display: 'flex',
-    height: '100%',
-    justifyContent: 'center',
+    display: "flex",
+    height: "100%",
+    justifyContent: "center"
   },
   linksList: {
-    display: 'flex',
+    display: "flex",
     padding: 0,
-    height: '100%'
+    height: "100%"
   },
   linksListItem: {
-    width: 'auto',
+    width: "auto"
   },
   activeLinkItem: {
-    background: 'rgba(0, 0, 0, 0.14)'
+    background: "rgba(0, 0, 0, 0.14)"
   },
   headerAuth: {
-    display: 'flex',
-    position: 'absolute',
+    display: "flex",
+    position: "absolute",
     top: 0,
     right: 0,
-    height: '100%',
-    alignItems: 'center',
+    height: "100%",
+    alignItems: "center"
   }
 });
 
@@ -73,7 +73,7 @@ function Header({ ...props }) {
   const headerLogo = (
     <div className={classes.headerLogo}>
       <Button href="#" color="inherit" className={classes.logoImageWrap}>
-        <img src={logoImg} alt="Академия Artezio" className={classes.logoImg} />
+        <img src={logoImg} alt="Академия Artezio" className={classes.logoImg}/>
       </Button>
     </div>
   );
@@ -97,7 +97,7 @@ function Header({ ...props }) {
             primary={
               <Typography
                 variant="subtitle1"
-                style={{ color: '#fff' }}>
+                style={{ color: "#fff" }}>
                 {prop.name}
               </Typography>
             }
@@ -123,7 +123,7 @@ function Header({ ...props }) {
         aria-label="open drawer"
         onClick={props.handleDrawerToggle}
       >
-        <Menu />
+        <Menu/>
       </IconButton>
 
       <SwipeableDrawer
@@ -136,7 +136,7 @@ function Header({ ...props }) {
         <div className={classes.sideLinks}>
           {navLinksList}
         </div>
-        <Divider />
+        <Divider/>
         <div className={classes.sideAuth}>
           <Button variant="contained" color="secondary">Войти</Button>
         </div>

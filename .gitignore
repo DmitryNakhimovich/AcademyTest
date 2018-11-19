@@ -1,9 +1,35 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# folders
+dist
+vizit
+zip
+preview
+node_modules
+.CVS
+.git
+.hg
+.idea
+.svn
+.vscode
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+
+# Numerous always-ignore extensions
+*.bak
+*.diff
+*.err
+*.exe
+*.log
+*.orig
+*.rej
+*.sass-cache
+*.swo
+*.swp
+*.vi
+*.zip
+*~
 
 # testing
 /coverage
@@ -17,6 +43,18 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+# OS or Editor folders
+*.sublime-grunt.cache
+*.sublime-project
+*.sublime-workspace
+._*
+.cache
+.DS_Store
+.project
+.settings
+.tmproj
+Thumbs.db
 
 npm-debug.log*
 yarn-debug.log*
