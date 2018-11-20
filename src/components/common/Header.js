@@ -19,7 +19,7 @@ import Menu from "@material-ui/icons/Menu";
 // page routes
 import pagesRoutes from "../../routes/pages.js";
 
-import logoImg from "../../assets/img/artezio.logo";
+import logoImg from "../../assets/img/artezio_icon_white.png";
 
 const headerStyle = theme => ({
   headerToolbar: {
@@ -72,7 +72,13 @@ function Header({ ...props }) {
 
   const headerLogo = (
     <div className={classes.headerLogo}>
-      <Button href="#" color="inherit" className={classes.logoImageWrap}>
+      <Button
+        className={classes.logoImageWrap}
+        component={NavLink}
+        to="/"
+        exact
+        color="inherit"
+      >
         <img src={logoImg} alt="Академия Artezio" className={classes.logoImg}/>
       </Button>
     </div>
