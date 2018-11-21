@@ -5,7 +5,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
-import withRoot from "../components/utils/withRoot.js";
 import Header from "../components/common/Header.js";
 import Footer from "../components/common/Footer.js";
 // routing
@@ -36,7 +35,7 @@ const switchRoutes = (
   </Switch>
 );
 
-class App extends React.Component {
+class Layout extends React.Component {
   constructor(props) {
     super(props);
 
@@ -98,8 +97,8 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+Layout.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(layoutStyle)(App));
+export default withStyles(layoutStyle)(Layout);

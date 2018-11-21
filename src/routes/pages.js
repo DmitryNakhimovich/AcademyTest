@@ -1,7 +1,7 @@
 // core components/views
 import IndexPage from "../views/Index.js";
 import About from "../views/About.js";
-import News from "../views/News.js";
+import NewsContainer from "../containers/NewsContainer.js";
 
 const pagesRoutes = [
   {
@@ -13,8 +13,8 @@ const pagesRoutes = [
   {
     name: "Новости",
     path: "/news",
-    component: News,
-    exact: false
+    component: NewsContainer,
+    exact: true
   },
   {
     name: "О компании",

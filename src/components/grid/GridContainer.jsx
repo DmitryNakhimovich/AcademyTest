@@ -14,14 +14,16 @@ const style = {
 
 function GridContainer(props) {
   const { classes, children, classNameDop, ...rest } = props;
-  var addStyle = classNames({
-    [" " + classNameDop]: true
-  });
+  const addStyle = classNameDop ?
+    classNames({
+      [" " + classNameDop]: true
+    })
+    : null;
 
   return (
     <Grid
       container
-      className={classes.row + addStyle}
+      className={addStyle ? classes.row + addStyle : classes.row}
       {...rest}
     >
       {children}

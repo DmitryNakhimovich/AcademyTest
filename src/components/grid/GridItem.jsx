@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
@@ -14,10 +15,19 @@ const style = {
 };
 
 function GridItem({ ...props }) {
-  const { classes, children, ...rest } = props;
+  const { classes, children, classNameDop, ...rest } = props;
+  const addStyle = classNameDop ?
+    classNames({
+      [" " + classNameDop]: true
+    })
+    : null;
 
   return (
-    <Grid item {...rest} className={classes.col}>
+    <Grid
+      item
+      className={addStyle ? classes.col + addStyle : classes.col}
+      {...rest}
+    >
       {children}
     </Grid>
   );
