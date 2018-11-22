@@ -1,7 +1,8 @@
 // core components/views
-import IndexPage from "../views/Index.js";
-import About from "../views/About.js";
-import NewsContainer from "../containers/NewsContainer.js";
+import IndexPage from "../views/Index";
+import About from "../views/About";
+import NewsContainer from "../containers/NewsContainer";
+import NewsDetailContainer from "../containers/NewsDetailContainer";
 
 const pagesRoutes = [
   {
@@ -14,7 +15,15 @@ const pagesRoutes = [
     name: "Новости",
     path: "/news",
     component: NewsContainer,
-    exact: true
+    exact: true,
+    hasDetails: true
+  },
+  {
+    name: "Детальная Новость",
+    path: "/news/:id",
+    component: NewsDetailContainer,
+    exact: false,
+    isHeaderHidden: true
   },
   {
     name: "О компании",

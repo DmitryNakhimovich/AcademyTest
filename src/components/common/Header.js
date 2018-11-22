@@ -88,28 +88,29 @@ function Header({ ...props }) {
       className={classes.linksList}
       component="nav"
     >
-      {pagesRoutes.map((prop, key) => (
-        <ListItem
-          button
-          key={key}
-          component={NavLink}
-          to={prop.path}
-          exact
-          className={classes.linksListItem}
-          activeClassName={classes.activeLinkItem}
-        >
-          <ListItemText
-            disableTypography
-            primary={
-              <Typography
-                variant="subtitle1"
-                style={{ color: "#fff" }}>
-                {prop.name}
-              </Typography>
-            }
-          />
-        </ListItem>
-      ))}
+      {pagesRoutes.map((prop, key) => {
+        if (!prop.isHeaderHidden)
+          return (
+            <ListItem
+              button
+              key={key}
+              component={NavLink}
+              to={prop.path}
+              exact={!prop.hasDetails}
+              className={classes.linksListItem}
+              activeClassName={classes.activeLinkItem}
+            >
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography variant="subtitle1" style={{ color: "#fff" }}>
+                    {prop.name}
+                  </Typography>
+                }
+              />
+            </ListItem>
+          );
+      })}
     </List>
   );
   const desktopNavMenu = (

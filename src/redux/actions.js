@@ -2,8 +2,9 @@ import faker from 'faker';
 
 const {
   date: { past, recent },
-  lorem: { paragraph, paragraphs, slug, words },
-  random: { uuid, number },
+  lorem: { paragraph, paragraphs, words },
+  random: { uuid, number, image },
+  image: { technics }
 } = faker;
 
 // action constants
@@ -20,12 +21,6 @@ const recentDates = Array(50)
     return 0;
   });
 
-/**
- * Receives posts (mocked by faker).
- *
- * @param {Number} [count=1]
- * @param {Object} [options]
- */
 export const receivePosts = (count = 1, options = {}) => {
   const posts = Array(count)
     .fill()
@@ -37,8 +32,7 @@ export const receivePosts = (count = 1, options = {}) => {
         summary,
         content: `${summary}\n${paragraphs()}`,
         date: recentDates.pop() || past(),
-        slug: options.slug || slug(),
-        image: "https://picsum.photos/800/800/?image=" + number() % 100
+        image: "https://picsum.photos/800/800/?image=" + number() % 100 //image()
       };
     });
 
@@ -49,7 +43,6 @@ export const receivePosts = (count = 1, options = {}) => {
 };
 
 const POST_COUNT = 5;
-
 export const fetchPosts = () => {
   return dispatch => {
     // emulate api request
@@ -57,15 +50,9 @@ export const fetchPosts = () => {
   };
 };
 
-/**
- * Fetches post.
- *
- * @param {String} id
- * @param {String} slug
- */
-export const fetchPost = (id, slug) => {
+export const fetchPost = (id) => {
   return dispatch => {
     // emulate api request
-    setTimeout(() => dispatch(receivePosts(1, { id, slug })), 1000);
+    setTimeout(() => dispatch(receivePosts(1, { id })), 1000);
   };
 };
