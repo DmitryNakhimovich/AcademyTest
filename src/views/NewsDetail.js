@@ -28,7 +28,14 @@ const styles = theme => ({
     paddingTop: "3rem",
     paddingBottom: "3rem",
     textAlign: "center"
-  }
+  },
+  imageWrap: {
+    objectFit: 'cover',
+    transitionDuration: '0.5s, 0.75s, 0.3s',
+    height: "auto",
+    maxHeight: "400px",
+  },
+  imagePic: {},
 });
 
 moment.locale("ru", locale_ru);
@@ -68,16 +75,8 @@ class NewsDetail extends PureComponent {
           src={image}
           alt={title}
           aspectRatio={(2)}
-          imageStyle={{
-            objectFit: 'cover',
-            transitionDuration: '0.5s, 0.75s, 0.3s',
-          }}
-          style={{
-            // height: "100%",
-            // maxHeight: "400px",
-            // maxWidth: "400px",
-            // paddingTop: "0"
-          }}
+          imageStyle={classes.imageWrap}
+          style={{}}
           loading={
             <CircularProgress size={50} thickness={3}/>
           }

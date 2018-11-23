@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 // core components
 import withRoot from "./utils/withRoot";
 import withStore from "./utils/withStore";
+import ScrollToTop from "./utils/ScrollToTop";
 // styles
 import "../assets/css/main.css"
 // routes
@@ -15,15 +16,17 @@ class App extends PureComponent {
   render() {
     return (
       <Router history={hist}>
-        <Switch>
-          {indexRoutes.map((prop, key) => {
-            return <Route
-              path={prop.path}
-              component={prop.component}
-              key={key}
-            />;
-          })}
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            {indexRoutes.map((prop, key) => {
+              return <Route
+                path={prop.path}
+                component={prop.component}
+                key={key}
+              />;
+            })}
+          </Switch>
+        </ScrollToTop>
       </Router>
     );
   }
